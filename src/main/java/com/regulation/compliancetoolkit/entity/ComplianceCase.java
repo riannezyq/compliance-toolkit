@@ -1,5 +1,6 @@
 package com.regulation.compliancetoolkit.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,9 +31,11 @@ public class ComplianceCase {
     private String replaceStandardNo;
 
     @Column(name = "publish_date", nullable = false)
+    @JsonFormat(pattern = "yyyy-MM-dd") // Add this
     private LocalDate publishDate;
 
     @Column(name = "implement_date", nullable = false)
+    @JsonFormat(pattern = "yyyy-MM-dd") // Add this
     private LocalDate implementDate;
 
     @Column(name = "drafting_company", nullable = false)
@@ -44,3 +47,5 @@ public class ComplianceCase {
     @Column(name = "is_collected")
     private Boolean isCollected = false;
 }
+
+
