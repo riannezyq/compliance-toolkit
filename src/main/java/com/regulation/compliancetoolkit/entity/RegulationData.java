@@ -12,7 +12,7 @@ public class RegulationData {
     private Integer id;
 
     @Column(name = "country_name", nullable = false, unique = true)
-    private String country; // 字段名直接叫country，和Vue的row.country完全匹配
+    private String country;
 
     @Column(nullable = false)
     private Integer cat1;

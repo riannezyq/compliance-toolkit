@@ -31,21 +31,21 @@ public class ComplianceCase {
     private String replaceStandardNo;
 
     @Column(name = "publish_date", nullable = false)
-    @JsonFormat(pattern = "yyyy-MM-dd") // Add this
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate publishDate;
 
     @Column(name = "implement_date", nullable = false)
-    @JsonFormat(pattern = "yyyy-MM-dd") // Add this
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate implementDate;
 
     @Column(name = "drafting_company", nullable = false)
     private String draftingCompany;
 
-    @Column(name = "star_count")
+    // Database-level default + Java default (double safety)
+    @Column(name = "star_count", nullable = false, columnDefinition = "INT DEFAULT 0")
     private Integer starCount = 0;
 
-    @Column(name = "is_collected")
+    // Database-level default + Java default (double safety)
+    @Column(name = "is_collected", nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
     private Boolean isCollected = false;
 }
-
-

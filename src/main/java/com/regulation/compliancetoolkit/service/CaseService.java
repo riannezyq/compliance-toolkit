@@ -12,16 +12,14 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CaseService {
 
-    private final ComplianceCaseRepository caseRepo;
+    private ComplianceCaseRepository caseRepo;
 
-
-    // Get paginated case list (matches your Vue pagination)
     public Page<ComplianceCase> getPaginatedCases(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
+        int zeroBasedPage = Math.max(page - 1, 0); // Prevent negative page numbers
+        Pageable pageable = PageRequest.of(zeroBasedPage, size);
         return caseRepo.findAll(pageable);
     }
 
-    // Get total number of cases (for your Vue pagination count: 6074)
     public long getTotalCases() {
         return caseRepo.count();
     }

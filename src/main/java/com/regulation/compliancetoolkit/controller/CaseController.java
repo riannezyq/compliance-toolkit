@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.CrossOrigin; // ✅ Add this impo
 
 @CrossOrigin(origins = "http://localhost:5173") // ✅ Allow Vue's origin
 @RestController
-@RequestMapping("/api/case") // All case list APIs start with this URL
+@RequestMapping("/api/case/") // All case list APIs start with this URL
 @RequiredArgsConstructor
 public class CaseController {
 
